@@ -45,33 +45,6 @@ Built as a Bachelor's thesis project in Computer Science.
 Trained on **33,420 samples** (Kaggle SQLi dataset + OWASP attack examples).  
 Cross-validation: 99.70% ± 0.12% (5-Fold)
 
----
-
-## Project Structure
-
-```
-sql-injection-defense-ml-waf/
-├── backend/
-│   ├── app.py                  # Main Flask application & API routes
-│   ├── waf.py                  # WAF engine (4-layer detection)
-│   ├── security_middleware.py  # Rate limiting, IP blocking
-│   ├── jwt_auth.py             # JWT authentication logic
-│   ├── database.py             # Database setup & queries
-│   ├── security_logger.py      # Attack logging
-│   ├── ml/
-│   │   ├── ml_detector.py      # ML inference logic
-│   │   └── train_model.py      # Model training script
-│   └── data/
-│       ├── random_forest_model.pkl
-│       ├── Modified_SQL_Dataset.csv
-│       └── sqli_payloads_expanded.txt
-├── frontend/
-│   └── src/
-│       ├── App.js
-│       ├── components/         # Login, Register, Dashboard, Scanner, etc.
-│       └── services/api.js
-└── README.md
-```
 
 ---
 
@@ -103,18 +76,6 @@ The app will open at `http://localhost:3000`.
 
 ---
 
-## API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/api/login` | User login |
-| POST | `/api/register` | User registration |
-| GET | `/api/products` | List products |
-| POST | `/api/search` | Search products |
-| POST | `/api/scan` | Test WAF scanner |
-| GET | `/api/admin/users` | List users (admin only) |
-
----
 
 ## How It Works
 
@@ -124,8 +85,4 @@ The app will open at `http://localhost:3000`.
 4. If any layer flags the input → **403 Forbidden**, attack logged
 5. Clean requests pass through to the Flask routes and database
 
----
 
-## License
-
-MIT
