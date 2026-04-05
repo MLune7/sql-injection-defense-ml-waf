@@ -1,0 +1,131 @@
+2026-01-09 13:29:45,902 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.129:5000
+2026-01-09 13:29:45,902 | INFO | [33mPress CTRL+C to quit[0m
+2026-01-09 13:29:45,903 | INFO |  * Restarting with stat
+2026-01-09 13:29:46,729 | WARNING |  * Debugger is active!
+2026-01-09 13:29:46,734 | INFO |  * Debugger PIN: 937-678-769
+2026-01-09 13:30:33,967 | INFO | IP=127.0.0.1 METHOD=OPTIONS PATH=/api/login STATUS=200
+2026-01-09 13:30:33,967 | INFO | 127.0.0.1 - - [09/Jan/2026 13:30:33] "OPTIONS /api/login HTTP/1.1" 200 -
+2026-01-09 13:30:34,224 | INFO | IP=127.0.0.1 METHOD=POST PATH=/api/login STATUS=200
+2026-01-09 13:30:34,224 | INFO | 127.0.0.1 - - [09/Jan/2026 13:30:34] "POST /api/login HTTP/1.1" 200 -
+2026-01-09 13:30:41,842 | INFO | IP=127.0.0.1 METHOD=OPTIONS PATH=/api/login STATUS=200
+2026-01-09 13:30:41,843 | INFO | 127.0.0.1 - - [09/Jan/2026 13:30:41] "OPTIONS /api/login HTTP/1.1" 200 -
+2026-01-09 13:30:42,148 | INFO | IP=127.0.0.1 METHOD=POST PATH=/api/login STATUS=200
+2026-01-09 13:30:42,148 | INFO | 127.0.0.1 - - [09/Jan/2026 13:30:42] "POST /api/login HTTP/1.1" 200 -
+2026-01-09 13:30:47,841 | INFO | IP=127.0.0.1 METHOD=OPTIONS PATH=/api/login STATUS=200
+2026-01-09 13:30:47,841 | INFO | 127.0.0.1 - - [09/Jan/2026 13:30:47] "OPTIONS /api/login HTTP/1.1" 200 -
+2026-01-09 13:30:48,147 | INFO | IP=127.0.0.1 METHOD=POST PATH=/api/login STATUS=200
+2026-01-09 13:30:48,147 | INFO | 127.0.0.1 - - [09/Jan/2026 13:30:48] "POST /api/login HTTP/1.1" 200 -
+2026-01-09 13:31:01,086 | INFO | IP=127.0.0.1 METHOD=OPTIONS PATH=/api/login STATUS=200
+2026-01-09 13:31:01,086 | INFO | 127.0.0.1 - - [09/Jan/2026 13:31:01] "OPTIONS /api/login HTTP/1.1" 200 -
+2026-01-09 13:31:01,391 | INFO | IP=127.0.0.1 METHOD=POST PATH=/api/login STATUS=200
+2026-01-09 13:31:01,391 | INFO | 127.0.0.1 - - [09/Jan/2026 13:31:01] "POST /api/login HTTP/1.1" 200 -
+2026-01-09 13:34:41,669 | INFO |  * Detected change in 'C:\\Users\\bassh\\OneDrive\\Desktop\\SQLDEMO\\sql_demo\\backend\\app.py', reloading
+2026-01-09 13:34:41,758 | INFO |  * Restarting with stat
+2026-01-09 13:34:42,127 | WARNING |  * Debugger is active!
+2026-01-09 13:34:42,131 | INFO |  * Debugger PIN: 937-678-769
+2026-01-09 13:34:52,581 | INFO | IP=127.0.0.1 METHOD=OPTIONS PATH=/api/login STATUS=200
+2026-01-09 13:34:52,582 | INFO | 127.0.0.1 - - [09/Jan/2026 13:34:52] "OPTIONS /api/login HTTP/1.1" 200 -
+2026-01-09 13:34:52,836 | INFO | IP=127.0.0.1 METHOD=POST PATH=/api/login STATUS=200
+2026-01-09 13:34:52,837 | INFO | 127.0.0.1 - - [09/Jan/2026 13:34:52] "POST /api/login HTTP/1.1" 200 -
+2026-01-09 13:36:08,605 | INFO | IP=127.0.0.1 METHOD=OPTIONS PATH=/api/login STATUS=200
+2026-01-09 13:36:08,605 | INFO | 127.0.0.1 - - [09/Jan/2026 13:36:08] "OPTIONS /api/login HTTP/1.1" 200 -
+2026-01-09 13:36:08,856 | INFO | IP=127.0.0.1 METHOD=POST PATH=/api/login STATUS=200
+2026-01-09 13:36:08,857 | INFO | 127.0.0.1 - - [09/Jan/2026 13:36:08] "POST /api/login HTTP/1.1" 200 -
+2026-01-09 16:43:23,818 | INFO |  * Detected change in 'C:\\Users\\bassh\\OneDrive\\Desktop\\SQLDEMO\\sql_demo\\backend\\security_logger.py', reloading
+2026-01-09 16:43:23,888 | INFO |  * Restarting with stat
+2026-01-13T18:18:00.795257 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin' OR '1'='1
+2026-01-13T18:18:13.497589 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=' UNION SELECT * FROM users--
+2026-01-13T18:18:17.527079 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' UNION SELECT * FROM users--
+2026-01-13T18:19:03.221064 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' OR '1'='1
+2026-01-13T18:19:05.173426 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' UNION SELECT username,password,email FROM users--
+2026-01-17T08:45:30.155077 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'input' at /api/scan | PAYLOAD=' UNION SELECT * FROM users--
+2026-01-17T08:45:34.427957 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'input' at /api/scan | PAYLOAD=' UNION SELECT * FROM users--
+2026-01-17T08:46:31.591347 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'input' at /api/scan | PAYLOAD=' UNION SELECT * FROM users--
+2026-01-17T09:14:38.969410 | IP=127.0.0.1 | REASON=Test attack logging | PAYLOAD=' OR '1'='1 -- TEST PAYLOAD
+2026-01-17T09:23:57.944103 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=' OR '1'='1
+2026-01-17T09:23:59.953091 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin'--
+2026-01-17T09:24:01.961493 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=' UNION SELECT 1,2,3,4,5--
+2026-01-17T09:27:44.651648 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin' OR '1'='1
+2026-01-17T09:28:42.915002 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin' OR '1'='1
+2026-01-17T09:29:16.601203 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' OR '1'='1
+2026-01-17T09:29:35.383810 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' UNION SELECT username,password,email FROM users--
+2026-01-17T09:29:37.411653 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' UNION SELECT username,password,email FROM users--
+2026-01-17T09:35:10.420278 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=SELECT * FROM users WHERE username = 'admin' AND password = 'password123';
+2026-01-18T11:39:08.512723 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin' OR '1'='1
+2026-01-18T11:40:03.592404 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin'--
+2026-01-18T11:41:13.419316 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' OR '1'='1
+2026-01-18T11:41:24.326312 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'query' at /api/search | PAYLOAD=' OR '1'='1
+2026-01-23T19:17:22.945515 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin'--
+2026-01-23T19:18:09.278792 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin'--
+2026-01-23T19:55:12.643287 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin'
+2026-02-04T07:35:47.053076 | IP=127.0.0.1 | REASON=SQLi/blacklisted value in JSON field 'username' at /api/login | PAYLOAD=admin' OR '1'='1
+2026-03-02T19:12:52.231690 | IP=127.0.0.1 | REASON=SQLi detected in query field 'id' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:12:54.339738 | IP=127.0.0.1 | REASON=SQLi detected in query field 'search' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:12:56.572386 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:12:58.864488 | IP=127.0.0.1 | REASON=SQLi detected in form field 'query' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:13:01.120304 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'filters.category.name' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:13:03.601522 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'items[2]' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:13:05.980780 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'data.users[1].name' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:13:08.318781 | IP=127.0.0.1 | REASON=SQLi detected in body field 'raw_body' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:13:10.616906 | IP=127.0.0.1 | REASON=SQLi detected in body field 'raw_body' at /api/search | Methods: ['regex', 'ml'] | Confidence: 0.61 | PAYLOAD=<query>' OR '1'='1</query>
+2026-03-02T19:13:12.943675 | IP=127.0.0.1 | REASON=SQLi detected in file field 'file:file:filename' at /api/search | Methods: ['regex', 'ml'] | Confidence: 0.63 | PAYLOAD=' OR '1'='1.txt
+2026-03-02T19:13:19.178766 | IP=127.0.0.1 | REASON=SQLi detected in query field 'id' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:00.802025 | IP=127.0.0.1 | REASON=SQLi detected in query field 'id' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:02.939266 | IP=127.0.0.1 | REASON=SQLi detected in query field 'search' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:05.354810 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:07.801623 | IP=127.0.0.1 | REASON=SQLi detected in form field 'query' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:10.194409 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'filters.category.name' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:12.708693 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'items[2]' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:15.192733 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'data.users[1].name' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:17.490355 | IP=127.0.0.1 | REASON=SQLi detected in body field 'raw_body' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:19.891296 | IP=127.0.0.1 | REASON=SQLi detected in body field 'raw_body' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 0.98 | PAYLOAD=<query>' OR '1'='1</query>
+2026-03-02T19:15:22.255571 | IP=127.0.0.1 | REASON=SQLi detected in file field 'file:file:filename' at /api/search | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1.txt
+2026-03-02T19:15:24.472479 | IP=127.0.0.1 | REASON=SQLi detected in header field 'X-Custom-Header' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:26.588490 | IP=127.0.0.1 | REASON=SQLi detected in cookie field 'session' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-02T19:15:28.711371 | IP=127.0.0.1 | REASON=SQLi detected in query field 'id' at /api/products | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=' OR '1'='1
+2026-03-12T09:24:56.499422 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=admin' OR '1'='1
+2026-03-12T09:25:31.574519 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['regex', 'ml'] | Confidence: 0.63 | PAYLOAD='; DROP TABLE users;--
+2026-03-12T09:27:05.972571 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD='; DROP TABLE users;--
+2026-03-13T12:52:44.025048 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['ml'] | Confidence: 0.27 | PAYLOAD=1'
+2026-03-13T12:52:57.074585 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['ml'] | Confidence: 0.27 | PAYLOAD=1"
+2026-03-13T12:53:18.873645 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 0.98 | PAYLOAD=admin'--
+2026-03-13T13:30:54.349735 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['regex', 'ml'] | Confidence: 0.63 | PAYLOAD='; DROP TABLE users;--
+2026-03-17T18:43:03.734580 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T18:43:57.894749 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T18:45:55.726835 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['regex', 'ml'] | Confidence: 0.63 | PAYLOAD=admin' OR '1'='1
+2026-03-17T18:46:52.441871 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=admin' OR '1'='1
+2026-03-17T18:50:19.585451 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T18:50:32.590260 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:07:07.713270 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:07:35.342040 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:08:12.050501 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:08:30.309946 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:09:04.464490 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:09:22.770613 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:10:08.184327 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:11:56.446051 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:41:46.006391 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:42:05.373126 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-17T19:42:18.424074 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-18T12:55:15.631739 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['regex', 'ml'] | Confidence: 0.63 | PAYLOAD=admin' OR '1'='1
+2026-03-18T12:55:24.226301 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=admin' OR '1'='1
+2026-03-18T12:58:15.892353 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['regex', 'ml'] | Confidence: 0.63 | PAYLOAD=admin' OR '1'='1
+2026-03-18T12:58:37.591242 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=admin' OR '1'='1
+2026-03-18T12:59:09.206625 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'username' at /api/login | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 1.00 | PAYLOAD=admin' OR '1'='1
+2026-03-18T12:59:39.560958 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-18T12:59:46.822935 | IP=127.0.0.1 | REASON=SQLi detected in json_body field 'query' at /api/search | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=laptop' UNION SELECT NULL, username, password FROM users
+2026-03-18T13:21:06.982043 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND 1=1 | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=1 AND 1=1
+2026-03-18T13:21:07.674226 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND 1=1 | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=1 AND 1=1
+2026-03-18T13:23:43.776578 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND 1=1 | Methods: ['regex'] | Confidence: 0.30 | PAYLOAD=1 AND 1=1
+2026-03-18T13:23:44.433595 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND 1=1 | Methods: ['blacklist', 'regex'] | Confidence: 0.67 | PAYLOAD=1 AND 1=1
+2026-03-18T13:25:03.475169 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 ORDER BY 10-- | Methods: ['regex', 'ml'] | Confidence: 0.60 | PAYLOAD=1 ORDER BY 10--
+2026-03-18T13:25:04.079157 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 ORDER BY 10-- | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 0.97 | PAYLOAD=1 ORDER BY 10--
+2026-03-18T13:27:55.594610 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND SLEEP(5)-- | Methods: ['regex', 'ml'] | Confidence: 0.62 | PAYLOAD=1 AND SLEEP(5)--
+2026-03-18T13:27:56.419910 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND SLEEP(5)-- | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 0.99 | PAYLOAD=1 AND SLEEP(5)--
+2026-03-18T13:33:00.218585 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND SLEEP(5)-- | Methods: ['regex', 'ml'] | Confidence: 0.62 | PAYLOAD=1 AND SLEEP(5)--
+2026-03-18T13:33:00.911990 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND SLEEP(5)-- | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 0.99 | PAYLOAD=1 AND SLEEP(5)--
+2026-03-18T13:34:37.859334 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND SLEEP(5)-- | Methods: ['regex', 'ml'] | Confidence: 0.62 | PAYLOAD=1 AND SLEEP(5)--
+2026-03-18T13:34:38.811386 | IP=127.0.0.1 | REASON=SQLi detected in url field 'path_segment' at /api/products/1 AND SLEEP(5)-- | Methods: ['blacklist', 'regex', 'ml'] | Confidence: 0.99 | PAYLOAD=1 AND SLEEP(5)--

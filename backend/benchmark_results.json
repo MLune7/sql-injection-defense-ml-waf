@@ -1,0 +1,27 @@
+{
+  "total_samples": 1000,
+  "crs": {
+    "true_positives": 337,
+    "true_negatives": 334,
+    "false_positives": 327,
+    "false_negatives": 2,
+    "total_time_ms": 118.48160000000004,
+    "accuracy": 67.1,
+    "precision": 50.75,
+    "recall": 99.41,
+    "f1_score": 67.2,
+    "avg_time_ms": 0.1185
+  },
+  "our_waf": {
+    "true_positives": 338,
+    "true_negatives": 336,
+    "false_positives": 325,
+    "false_negatives": 1,
+    "total_time_ms": 46846.60889999998,
+    "accuracy": 67.4,
+    "precision": 50.98,
+    "recall": 99.71,
+    "f1_score": 67.47,
+    "avg_time_ms": 46.8466
+  }
+}

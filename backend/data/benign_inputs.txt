@@ -1,0 +1,511 @@
+# Benign Inputs Dataset
+# These are legitimate user inputs that should NOT be flagged as SQL injection
+# Important for reducing false positives
+
+# ==================== NORMAL USERNAMES ====================
+john_doe
+jane_smith
+admin_user
+test_account
+user123
+michael.johnson
+sarah.williams
+alex2024
+developer_team
+support_staff
+guest_user
+new_member
+premium_user
+vip_customer
+regular_joe
+super_admin
+data_analyst
+marketing_team
+sales_rep
+hr_manager
+it_support
+web_developer
+mobile_dev
+backend_engineer
+frontend_specialist
+devops_admin
+security_analyst
+product_owner
+scrum_master
+qa_tester
+
+# ==================== NAMES WITH APOSTROPHES (Common false positive trigger) ====================
+O'Brien
+O'Connor
+O'Neill
+O'Malley
+O'Sullivan
+D'Angelo
+D'Arcy
+McDonald's
+L'Oreal
+Trader Joe's
+Dunkin' Donuts
+Denny's
+Lowe's
+Macy's
+Kohl's
+Sam's Club
+BJ's
+Chili's
+Applebee's
+TGI Friday's
+Ruth's Chris
+P.F. Chang's
+Wendy's
+Arby's
+Carl's Jr
+Hardee's
+Popeye's
+Church's
+Lee's
+Wong's
+Chang's
+Kim's
+Park's
+O'Reilly
+O'Donnell
+O'Keefe
+O'Hara
+O'Leary
+
+# ==================== NORMAL SEARCH QUERIES ====================
+laptop computer
+wireless headphones
+running shoes
+coffee maker
+office chair
+gaming mouse
+mechanical keyboard
+monitor stand
+desk lamp
+water bottle
+phone case
+usb cable
+hdmi adapter
+webcam
+microphone
+speakers
+mouse pad
+laptop bag
+external hard drive
+flash drive
+sd card
+power bank
+charger
+screen protector
+tablet stand
+ergonomic mouse
+standing desk
+filing cabinet
+printer paper
+ink cartridges
+stapler
+scissors
+tape dispenser
+calculator
+whiteboard
+markers
+notebooks
+pens
+pencils
+highlighters
+
+# ==================== PRODUCT DESCRIPTIONS ====================
+High-quality wireless Bluetooth headphones with noise cancellation
+Professional gaming mouse with RGB lighting and 16000 DPI sensor
+Ergonomic office chair with lumbar support and adjustable armrests
+Portable laptop stand with cooling fans and USB hub
+Mechanical keyboard with Cherry MX switches and backlit keys
+27-inch 4K monitor with HDR support and built-in speakers
+USB-C hub with HDMI, USB 3.0, and SD card reader
+Wireless charging pad compatible with iPhone and Android
+Noise-cancelling earbuds with 24-hour battery life
+Smart home speaker with voice assistant integration
+External SSD with 1TB storage and USB 3.2 connection
+Webcam with 1080p HD video and built-in microphone
+Adjustable monitor arm with cable management system
+Desk organizer with multiple compartments and phone holder
+LED desk lamp with adjustable brightness and color temperature
+
+# ==================== EMAIL ADDRESSES ====================
+john.doe@example.com
+jane_smith@company.org
+support@helpdesk.com
+info@business.net
+contact@website.io
+admin@localhost
+user+tag@gmail.com
+firstname.lastname@domain.co.uk
+test.email@subdomain.example.com
+noreply@automated.system
+feedback@customer.service
+sales@enterprise.biz
+marketing@brand.agency
+developer@tech.startup
+hr@human.resources
+
+# ==================== ADDRESSES AND LOCATIONS ====================
+123 Main Street, New York, NY 10001
+456 Oak Avenue, Los Angeles, CA 90001
+789 Pine Road, Chicago, IL 60601
+321 Elm Boulevard, Houston, TX 77001
+654 Maple Drive, Phoenix, AZ 85001
+987 Cedar Lane, Philadelphia, PA 19101
+147 Birch Court, San Antonio, TX 78201
+258 Willow Way, San Diego, CA 92101
+369 Spruce Circle, Dallas, TX 75201
+741 Ash Street, San Jose, CA 95101
+
+# ==================== PHONE NUMBERS ====================
+(555) 123-4567
+555-987-6543
++1 (800) 555-0123
+1-888-555-0199
+(212) 555-1234
+(310) 555-5678
+(312) 555-9012
+(713) 555-3456
+(602) 555-7890
+(215) 555-2345
+
+# ==================== DATES AND TIMES ====================
+2024-01-15
+01/15/2024
+15-Jan-2024
+January 15, 2024
+2024/01/15
+15/01/2024
+Jan 15, 2024
+Monday, January 15, 2024
+2024-01-15T10:30:00Z
+10:30 AM
+14:30:00
+3:45 PM EST
+
+# ==================== NUMBERS AND QUANTITIES ====================
+100
+1000
+10000
+99.99
+149.95
+1,234.56
+$99.99
+$1,499.00
+50%
+75% off
+2 items
+10 pieces
+5 boxes
+3 dozen
+1/2
+3/4
+0.5
+0.75
+1.5kg
+500ml
+12oz
+16GB
+1TB
+2.4GHz
+
+# ==================== TECHNICAL STRINGS (Code-like but benign) ====================
+config.json
+package.json
+settings.xml
+data.csv
+report.pdf
+image.png
+video.mp4
+audio.mp3
+document.docx
+spreadsheet.xlsx
+presentation.pptx
+archive.zip
+backup.tar.gz
+log_2024_01_15.txt
+error_report_v2.log
+user_data_export.json
+api_response.xml
+database_backup.sql
+migration_script.py
+test_results.html
+
+# ==================== URLs AND PATHS ====================
+https://www.example.com
+http://localhost:3000
+/api/users
+/home/user/documents
+C:\Users\Admin\Desktop
+./src/components
+../assets/images
+/var/log/application
+/etc/nginx/nginx.conf
+file:///home/user/file.txt
+ftp://ftp.example.com
+mailto:user@example.com
+
+# ==================== COMMON PHRASES ====================
+Hello, how are you?
+Thank you for your help
+Please contact support
+Looking forward to hearing from you
+Best regards
+Have a great day
+See you tomorrow
+Nice to meet you
+Welcome to our website
+Please enter your information
+Click here to continue
+Learn more about our products
+Subscribe to our newsletter
+Follow us on social media
+Read our privacy policy
+
+# ==================== PROGRAMMING TERMS (Non-malicious) ====================
+function
+variable
+array
+object
+class
+method
+parameter
+argument
+return value
+loop iteration
+conditional statement
+boolean expression
+string concatenation
+integer overflow
+null pointer
+memory allocation
+stack trace
+exception handling
+unit testing
+code review
+
+# ==================== DATABASE TERMS IN NORMAL CONTEXT ====================
+Select a product from the list
+Please select your country
+Union of two sets
+Select all that apply
+Join our mailing list
+Please join us for the event
+Where are you located?
+Order your food online
+Place your order now
+Drop us a message
+Drop by anytime
+Insert your card
+Insert coin to continue
+Update your profile
+Update your preferences
+Delete your account
+Delete this item?
+Create an account
+Create a new project
+Table of contents
+Coffee table
+Alter your settings
+Column A and Column B
+
+# ==================== MATH AND FORMULAS ====================
+1 + 1 = 2
+5 - 3 = 2
+4 * 5 = 20
+10 / 2 = 5
+2^10 = 1024
+sqrt(16) = 4
+log(100) = 2
+sin(90) = 1
+cos(0) = 1
+tan(45) = 1
+x = y + z
+a != b
+c >= d
+e <= f
+n == m
+p <> q
+
+# ==================== SPECIAL CHARACTERS IN NORMAL USE ====================
+rock & roll
+fish & chips
+terms & conditions
+Q&A session
+R&D department
+AT&T
+H&M
+B&B
+P&L statement
+M&A deal
+Tom & Jerry
+Jack & Jill
+bread & butter
+salt & pepper
+pros & cons
+do's and don'ts
+it's raining
+isn't it?
+won't work
+can't do it
+they're here
+we've arrived
+I'd like to
+she'll be there
+who's calling?
+what's up?
+let's go
+that's great
+here's the thing
+there's a problem
+
+# ==================== PASSWORDS (Hashed representations - for testing) ====================
+abc123
+password123
+letmein
+welcome1
+qwerty123
+admin2024
+test1234
+secure_pass
+MyP@ssw0rd
+Secret!123
+P@ssword1
+Welcome@2024
+Change.me1
+Temp!Pass9
+
+# ==================== VERSION NUMBERS ====================
+v1.0.0
+v2.3.4
+1.0.0-beta
+2.0.0-rc1
+3.1.4-alpha
+v10.2.1
+version 5.0
+release 2024.1
+build 12345
+revision 789
+
+# ==================== COMMON ERROR MESSAGES ====================
+File not found
+Access denied
+Connection timeout
+Invalid input
+Please try again
+Something went wrong
+An error occurred
+Page not found
+Service unavailable
+Request failed
+Network error
+Authentication required
+Session expired
+Permission denied
+Operation cancelled
+
+# ==================== PRODUCT REVIEWS ====================
+Great product! Highly recommend.
+Works exactly as described.
+Fast shipping, good quality.
+Excellent customer service.
+Would buy again.
+5 stars!
+Love it!
+Perfect fit.
+Good value for money.
+Exceeded expectations.
+Not what I expected.
+Could be better.
+Average quality.
+Decent for the price.
+Needs improvement.
+
+# ==================== MIXED CONTENT ====================
+Meeting at 3pm tomorrow
+Call John at 555-1234
+Email sent to team@company.com
+Budget: $5,000
+Deadline: January 31st
+Priority: High
+Status: In Progress
+Assigned to: Development Team
+Due date: 2024-02-15
+Reference #: INV-2024-0001
+Order ID: ORD123456
+Tracking number: 1Z999AA10123456784
+SKU: PROD-001-BLK-L
+UPC: 012345678901
+ISBN: 978-3-16-148410-0
+
+# ==================== INTERNATIONAL CHARACTERS ====================
+café
+résumé
+naïve
+über
+Müller
+François
+José
+María
+東京
+北京
+한국
+العربية
+ελληνικά
+עברית
+ไทย
+Москва
+Київ
+
+# ==================== EDGE CASES ====================
+a
+ab
+abc
+1
+12
+123
+.
+..
+...
+-
+--
+_
+__
+ 
+  
+test
+TEST
+Test
+TeSt
+tEsT
+
+# ==================== LONG STRINGS ====================
+This is a very long string that contains many words and should not be flagged as SQL injection because it is just normal text that a user might enter into a form field or search box on a website
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump!
+
+# ==================== JSON-LIKE STRINGS (Not actual injection) ====================
+{"name": "John", "age": 30}
+{"items": ["apple", "banana", "orange"]}
+{"success": true, "message": "OK"}
+{"error": false, "data": null}
+{"count": 100, "page": 1}
+
+# ==================== XML-LIKE STRINGS (Not actual injection) ====================
+<name>John Doe</name>
+<email>john@example.com</email>
+<item id="123">Product Name</item>
+<message>Hello World</message>
+<status>active</status>
+
+# ==================== HTML-LIKE STRINGS (Not actual injection) ====================
+<p>Hello World</p>
+<a href="https://example.com">Click here</a>
+<img src="image.jpg" alt="Description">
+<div class="container">Content</div>
+<span style="color: red">Important</span>

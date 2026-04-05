@@ -1,0 +1,28 @@
+{
+  "quick": {
+    "timestamp": "2026-03-02T22:35:21.828815",
+    "total_samples": 1000,
+    "total_time_seconds": 59.56,
+    "avg_latency_ms": 59.5557,
+    "min_latency_ms": 53.2951,
+    "max_latency_ms": 165.9861,
+    "median_latency_ms": 57.6815,
+    "p95_latency_ms": 73.3473,
+    "p99_latency_ms": 88.4527,
+    "throughput_rps": 16.79,
+    "memory_peak_mb": 76.67,
+    "memory_current_mb": 74.88,
+    "true_positives": 338,
+    "true_negatives": 336,
+    "false_positives": 325,
+    "false_negatives": 1,
+    "accuracy_percent": 67.4,
+    "precision_percent": 50.98,
+    "recall_percent": 99.71,
+    "f1_score_percent": 67.47,
+    "blacklist_avg_ms": 0.1867,
+    "regex_avg_ms": 0.0318,
+    "ml_avg_ms": 30.1076,
+    "ensemble_avg_ms": 30.3261
+  }
+}
